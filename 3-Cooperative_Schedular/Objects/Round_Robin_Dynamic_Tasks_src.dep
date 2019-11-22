@@ -1,0 +1,30 @@
+Dependencies for Project 'Round_Robin_Dynamic_Tasks', Target 'src': (DO NOT MODIFY !)
+F (.\OS.c)(0x5DB95A23)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -D_RTE_ -DTM4C123GH6PM-o .\objects\os.o --omf_browse .\objects\os.crf --depend .\objects\os.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F218C)
+I (OS.h)(0x5DB840AA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F218E)
+I (SystemTick.h)(0x5DB5DC43)
+I (tm4c123gh6pm.h)(0x5DB95780)
+F (.\OS.h)(0x5DB840AA)()
+F (.\OS.s)(0x5DB9585C)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\os.lst --xref -o .\objects\os_1.o --depend .\objects\os_1.d)
+F (.\SystemTick.c)(0x5DB95A26)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -D_RTE_ -DTM4C123GH6PM-o .\objects\systemtick.o --omf_browse .\objects\systemtick.crf --depend .\objects\systemtick.d)
+I (SystemTick.h)(0x5DB5DC43)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F218E)
+I (tm4c123gh6pm.h)(0x5DB95780)
+F (.\SystemTick.h)(0x5DB5DC43)()
+F (.\tm4c123gh6pm.h)(0x5DB95780)()
+F (.\APP.c)(0x5DB95AFB)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -D_RTE_ -DTM4C123GH6PM-o .\objects\app.o --omf_browse .\objects\app.crf --depend .\objects\app.d)
+I (SystemTick.h)(0x5DB5DC43)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F218E)
+I (tm4c123gh6pm.h)(0x5DB95780)
+I (OS.h)(0x5DB840AA)
+F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x5DB8389E)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
+F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x5DB710FE)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_src-IC:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -D_RTE_ -DTM4C123GH6PM-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F218E)
+I (C:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EF2F6)
+I (C:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FE22C)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559D3FFA)
+I (C:\Users\Hosam\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6E406)

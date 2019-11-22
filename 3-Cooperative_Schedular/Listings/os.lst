@@ -1,0 +1,179 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;OS.s
+    2 00000000         ;Runs on TM4C123
+    3 00000000         ;A software low level component that used OS context swi
+                       txhing.
+    4 00000000         ;Hossam Elfakher Hassan
+    5 00000000         ;Oct, 2019
+    6 00000000         
+    7 00000000         ;Copyright 2019 by Hossam Elfakher Hassan, hossamalfakhe
+                       r2@gmail.com
+    8 00000000         ; You may use, edit, run or distribute this file
+    9 00000000         ;   as long as the above copyright notice remains.
+   10 00000000         
+   11 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+   12 00000000                 THUMB
+   13 00000000                 REQUIRE8
+   14 00000000                 PRESERVE8
+   15 00000000         
+   16 00000000                 extern           RunB        ;current running th
+                                                            read
+   17 00000000                 export           SysTick_Handler
+   18 00000000                 export           OS_Launch
+   19 00000000                 import           Dispatcher
+   20 00000000                 export           Enter_Critical_Section
+   21 00000000                 export           Exit_Critical_Section
+   22 00000000         
+   23 00000000         Enter_Critical_Section
+   24 00000000 B672            CPSID            I
+   25 00000002 4770            BX               LR
+   26 00000004         
+   27 00000004         Exit_Critical_Section
+   28 00000004 B662            CPSIE            I
+   29 00000006 4770            BX               LR
+   30 00000008         
+   31 00000008         
+   32 00000008         OS_Launch
+   33 00000008 B672            CPSID            I
+   34 0000000A 4811            LDR              R0,=RunB    ;Load base address 
+                                                            of RunB pointer
+   35 0000000C 6801            LDR              R1,[R0]     ;RunB->RunTh
+   36 0000000E 6809            LDR              R1,[R1]     ;RunB->RunTh->stack
+                                                             pointer
+   37 00000010 F8D1 D000       LDR              SP, [R1]    ;Move the content o
+                                                            f thread stack poin
+                                                            ter to SP
+   38 00000014 E8BD 1FFF       POP              {R0-R12}    ;Moving stack point
+                                                            er till reach the P
+                                                            C location
+   39 00000018 F85D EB04       POP              {LR}        ;To discard the ret
+                                                            urn address of call
+                                                            ing function at tha
+                                                            t time
+   40 0000001C F85D EB04       POP              {LR}        ;Load Link Register
+                                                             with the content o
+                                                            f the Initialized P
+                                                            C adress
+   41 00000020 BC20            POP              {R5}        ;Discard the top of
+                                                             the thread stack
+   42 00000022 B662            CPSIE            I
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   43 00000024 4770            BX               LR          ;Back to run the fi
+                                                            rst thread
+   44 00000026         
+   45 00000026         SysTick_Handler
+   46 00000026 B672            CPSID            I
+   47 00000028 E92D 0FF0       PUSH             {R4-R11}
+   48 0000002C 4808            LDR              R0,=RunB    ;Load base address 
+                                                            of RunB pointer
+   49 0000002E 6801            LDR              R1,[R0]     ;RunB->RunTh
+   50 00000030 6809            LDR              R1,[R1]     ;RunB->RunTh->stack
+                                                             pointer
+   51 00000032 F8C1 D000       STR              SP, [R1]    ;Store stack pointe
+                                                            r of the old thread
+                                                            
+   52 00000036 B501            PUSH             {R0,LR}
+   53 00000038 F7FF FFFE       BL               Dispatcher  ;Get the next SP of
+                                                             ready thread
+   54 0000003C E8BD 4001       POP              {R0,LR}
+   55 00000040 6801            LDR              R1, [R0]
+   56 00000042 6809            LDR              R1, [R1]
+   57 00000044 F8D1 D000       LDR              SP, [R1]
+   58 00000048 E8BD 0FF0       POP              {R4-R11}    ;Retreive registers
+                                                             of the ready run t
+                                                            hread.
+   59 0000004C B662            CPSIE            I
+   60 0000004E 4770            BX               LR
+   61 00000050         
+   62 00000050                 ALIGN
+   63 00000050                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\os_1.d -o.\objects\os_1.o -I.\RTE\_src -IC:\Users\Hos
+am\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123 -IC:\Keil
+_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSIO
+N SETA 527" --predefine="_RTE_ SETA 1" --predefine="TM4C123GH6PM SETA 1" --list
+=.\listings\os.lst OS.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 11 in file OS.s
+   Uses
+      None
+Comment: .text unused
+Enter_Critical_Section 00000000
+
+Symbol: Enter_Critical_Section
+   Definitions
+      At line 23 in file OS.s
+   Uses
+      At line 20 in file OS.s
+Comment: Enter_Critical_Section used once
+Exit_Critical_Section 00000004
+
+Symbol: Exit_Critical_Section
+   Definitions
+      At line 27 in file OS.s
+   Uses
+      At line 21 in file OS.s
+Comment: Exit_Critical_Section used once
+OS_Launch 00000008
+
+Symbol: OS_Launch
+   Definitions
+      At line 32 in file OS.s
+   Uses
+      At line 18 in file OS.s
+Comment: OS_Launch used once
+SysTick_Handler 00000026
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 45 in file OS.s
+   Uses
+      At line 17 in file OS.s
+Comment: SysTick_Handler used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+Dispatcher 00000000
+
+Symbol: Dispatcher
+   Definitions
+      At line 19 in file OS.s
+   Uses
+      At line 53 in file OS.s
+Comment: Dispatcher used once
+RunB 00000000
+
+Symbol: RunB
+   Definitions
+      At line 16 in file OS.s
+   Uses
+      At line 34 in file OS.s
+      At line 48 in file OS.s
+
+2 symbols
+344 symbols in table
